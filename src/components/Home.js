@@ -23,14 +23,14 @@ const Home = () => {
 
 
     return (
-        <div className=''>
-            <div className='w-1/4 bg-primary min-h-screen pt-7'>
-                <div className='' >
+        <div className='flex'>
+            <div className='w-3/4'>
+            </div>
+            <div className=' w-1/4 min-h-screen pt-7'>
+                <div className='flex flex-col items-center' >
                     <AnalogueClock {...clockOptions} />
                     <Calander />
                 </div>
-            </div>
-            <div className='w-3/4'>
             </div>
         </div>
     );

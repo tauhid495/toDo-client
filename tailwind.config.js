@@ -8,7 +8,7 @@ module.exports = {
       {
         mytheme: {
 
-          "primary": "orangered",
+          "primary": "darkorange",
 
           "secondary": "lightgray",
 

@@ -28,9 +28,9 @@ const EditToDo = () => {
             axios.put(`https://to-do-tauhid.herokuapp.com/tasks/${id}`, {
                 task: newText,
             })
-                .then(data => {
+                // .then(data => {
 
-                })
+                // })
         }
 
         navigate('/todo');

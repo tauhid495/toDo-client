@@ -15,9 +15,9 @@ const ToDo = () => {
         axios.patch(`https://to-do-tauhid.herokuapp.com/tasks/${id}`, {
             completed: 'done',
         })
-            .then(data => {
-                // console.log(data);
-            })
+            // .then(data => {
+            //     // console.log(data);
+            // })
     };
 
     const handleAdd = (e) => {
@@ -35,7 +35,7 @@ const ToDo = () => {
                     }
                 })
         }
-        e.target.reset();
+        e.target.reset();  
     };
 
     const handleDelete = (id) => {

@@ -3,10 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import ToDo from "./components/ToDo";
 import Completed from "./components/Completed";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import EditToDo from "./components/EditToDo";
 import Home from "./components/Home";
 
@@ -52,7 +51,7 @@ function App() {
   // }, [addTask, handleDelete]);
 
   return (
-    <div className="">
+    <div className="bg-zinc-200">
       <ToastContainer />
       <NavBar />
       <Routes>

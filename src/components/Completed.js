@@ -1,10 +1,10 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import useData from '../hooks/useData';
+import React, { useEffect, useState } from 'react';
+
 
 
 const Completed = () => {
-    const [tasks, setTasks] = useData();
+    const [tasks, setTasks] = useState([]);
     useEffect(() => {
         axios.get('https://to-do-tauhid.herokuapp.com/tasks')
             .then(data => {
