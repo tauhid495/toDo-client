@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
-import { DayPicker, Head } from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+
+const css = `
+  .my-today { 
+    font-weight: bold;
+    font-size: 140%; 
+    color: orangered;
+  }
+`;
+
 
 const Calander = () => {
     const [selected, setSelected] = useState();
@@ -13,10 +22,13 @@ const Calander = () => {
 
     return (
         <div className='min-h-screen'>
+            <style>{css}</style>
             <DayPicker
                 mode="single"
-                selected={selected}
-                onSelect={setSelected}
+                modifiersClassNames={{
+                    today: 'my-today'
+                }}
+
                 footer={footer}
                 styles={{
                     head: { color: 'darkorange', background: 'gray' },

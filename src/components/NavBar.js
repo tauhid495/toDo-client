@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
     return (
         <div>
-            <div class="navbar">
+            <div className="navbar">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -18,7 +18,7 @@ const NavBar = () => {
                             </li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">Greetings From Tauhid</a>
+                    <div className="btn btn-ghost normal-case text-xl">Greetings From Tauhid</div>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">

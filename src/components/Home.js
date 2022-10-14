@@ -1,35 +1,41 @@
-import React from 'react';
+
 import AnalogueClock from 'react-analogue-clock';
 import Calander from './Calander';
+import GetTodoData from './GetTodoData';
+
 
 
 const Home = () => {
 
+
     const clockOptions = {
-        baseColor: '#00527b',
-        borderColor: '#d0d0d0 ',
-        borderWidth: 10,
-        centerColor: '#000000',
+        baseColor: 'lightgray',
+        borderColor: 'darkorange',
+        borderWidth: 11,
+        centerColor: 'firebrick',
         handColors: {
-            hour: '#d0d0d0',
-            minute: '#d0d0d0',
+            hour: 'black',
+            minute: 'black',
             second: '#8b0000',
         },
-        notchColor: '#d0d0d0',
-        numbersColor: '#d0d0d0',
-        showNumbers: false,
+        notchColor: 'gray',
+        numbersColor: 'gray',
+        showNumbers: true,
         size: 250
     }
 
 
     return (
-        <div className='flex'>
-            <div className='w-3/4'>
+        <div className='flex md:flex-row flex-col-reverse'>
+            <div className='md:w-1/4'>
+                <Calander />
             </div>
-            <div className=' w-1/4 min-h-screen pt-7'>
-                <div className='flex flex-col items-center' >
+            <div className='md:w-2/4 px-6'>
+                <GetTodoData />
+            </div>
+            <div className=' md:w-1/4 md:min-h-screen py-6'>
+                <div className='flex justify-center' >
                     <AnalogueClock {...clockOptions} />
-                    <Calander />
                 </div>
             </div>
         </div>

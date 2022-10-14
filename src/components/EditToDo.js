@@ -8,7 +8,6 @@ const EditToDo = () => {
     const { id } = useParams();
     const [task, setTask] = useState();
     const navigate = useNavigate();
-    // const [newText, setNewText] = useState();
 
     useEffect(() => {
         axios.get(`https://to-do-tauhid.herokuapp.com/tasks/${id}`)
@@ -16,21 +15,17 @@ const EditToDo = () => {
                 setTask(data.data.task)
                 // console.log(data.data.task);
             })
-    }, [])
+    }, [id])
 
     const handleEdit = (e) => {
         e.preventDefault();
         const newText = e.target.name.value;
-
         if (e.target.name.value === '') {
             return;
         } else {
             axios.put(`https://to-do-tauhid.herokuapp.com/tasks/${id}`, {
                 task: newText,
             })
-                // .then(data => {
-
-                // })
         }
 
         navigate('/todo');

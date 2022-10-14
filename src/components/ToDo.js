@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
@@ -15,10 +15,24 @@ const ToDo = () => {
         axios.patch(`https://to-do-tauhid.herokuapp.com/tasks/${id}`, {
             completed: 'done',
         })
-            // .then(data => {
-            //     // console.log(data);
-            // })
+        // .then(data => {
+        //     // console.log(data);
+        // })
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleDelete = useCallback((id) => {
+        axios.delete(`https://to-do-tauhid.herokuapp.com/tasks/${id}`)
+            .then(() => {
+                toast('Task deleted...')
+            })
+    });
+    useEffect(() => {
+        axios.get('https://to-do-tauhid.herokuapp.com/tasks')
+            .then(data => {
+                setTasks(data.data)
+            })
+
+    }, [addTask, handleDelete])
 
     const handleAdd = (e) => {
         e.preventDefault();
@@ -35,23 +49,11 @@ const ToDo = () => {
                     }
                 })
         }
-        e.target.reset();  
+        e.target.reset();
     };
 
-    const handleDelete = (id) => {
-        axios.delete(`https://to-do-tauhid.herokuapp.com/tasks/${id}`)
-            .then(data => {
-                toast('Task deleted...')
-            })
-    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
-    useEffect(() => {
-        axios.get('https://to-do-tauhid.herokuapp.com/tasks')
-            .then(data => {
-                setTasks(data.data)
-            })
-
-    }, [addTask, handleDelete])
 
     return (
         <div className=''>
