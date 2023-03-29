@@ -9,28 +9,28 @@ const Home = () => {
 
 
     const clockOptions = {
-        baseColor: 'lightgray',
-        borderColor: 'darkorange',
+        baseColor: 'white',
+        borderColor: '#009ACE',
         borderWidth: 11,
         centerColor: 'firebrick',
         handColors: {
-            hour: 'black',
-            minute: 'black',
+            hour: 'gray',
+            minute: 'gray',
             second: '#8b0000',
         },
         notchColor: 'gray',
-        numbersColor: 'gray',
-        showNumbers: true,
-        size: 250
+        numbersColor: 'black',
+        showNumbers: false,
+        size: 220,
     }
 
 
     return (
-        <div className='flex md:flex-row flex-col-reverse'>
+        <div className='flex md:flex-row flex-col-reverse mt-5'>
             <div className='md:w-1/4'>
                 <Calander />
             </div>
-            <div className='md:w-2/4 px-6'>
+            <div className='md:w-2/4 px-6 mt-5'>
                 <GetTodoData />
             </div>
             <div className=' md:w-1/4 md:min-h-screen py-6'>

@@ -7,7 +7,8 @@ const css = `
   .my-today { 
     font-weight: bold;
     font-size: 140%; 
-    color: orangered;
+    color: #009ACE;
+   
   }
 `;
 
@@ -21,7 +22,7 @@ const Calander = () => {
     }
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen '>
             <style>{css}</style>
             <DayPicker
                 mode="single"
@@ -31,8 +32,8 @@ const Calander = () => {
 
                 footer={footer}
                 styles={{
-                    head: { color: 'darkorange', background: 'gray' },
-                    caption: { background: 'darkorange', color: 'gray' }
+                    head: { color: '#009ACE', background: 'lightgray' },
+                    caption: { background: '#009ACE', color: 'lightgray' },
                 }}
             />
         </div>

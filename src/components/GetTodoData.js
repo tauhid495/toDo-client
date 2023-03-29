@@ -6,20 +6,23 @@ const GetTodoData = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('https://to-do-tauhid.herokuapp.com/tasks')
+    axios.get('https://todo-server-236i.onrender.com/tasks')
       .then(data => {
         setTasks(data.data)
       })
 
   }, [])
   return (
-    <div className=''>
+    <div className='border px-5 py-3 shadow-2xl rounded-lg bg-[#D4E6F1]'>
+
+      <p className='font-bold text-2xl text-center text-[#009ACE] drop-shadow-sm'> Your Todo Tasks</p>
+
       {
         tasks.map((task, index) => {
           return (
-            <div>
+            <div key={index}>
               {task.completed === "" &&
-                <div className='flex  items-center justify-between bg-base-300 rounded-lg my-2 p-3'>
+                <div className='flex  items-center justify-between shadow-md bg-white rounded-lg my-7 p-3'>
                   <div className='flex items-center'>
                     <div className='text-xl font-semibold'>
                       {task.task}

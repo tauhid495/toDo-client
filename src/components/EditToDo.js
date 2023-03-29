@@ -10,7 +10,7 @@ const EditToDo = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`https://to-do-tauhid.herokuapp.com/tasks/${id}`)
+        axios.get(`https://todo-server-236i.onrender.com/tasks/${id}`)
             .then(data => {
                 setTask(data.data.task)
                 // console.log(data.data.task);
@@ -23,7 +23,7 @@ const EditToDo = () => {
         if (e.target.name.value === '') {
             return;
         } else {
-            axios.put(`https://to-do-tauhid.herokuapp.com/tasks/${id}`, {
+            axios.put(`https://todo-server-236i.onrender.com/tasks/${id}`, {
                 task: newText,
             })
         }
@@ -43,6 +43,8 @@ const EditToDo = () => {
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <div class="card flex-shrink-0 w-full md:w-1/2 shadow-2xl bg-base-100">
                         <div class="card-body">
+                            <p className='font-bold text-2xl text-center text-[#009ACE] drop-shadow-sm'>Edit Your Tasks</p>
+
                             {/* <form > */}
                             <form onSubmit={handleEdit} class="form-control">
                                 <div class="input-group">
@@ -51,7 +53,7 @@ const EditToDo = () => {
                                 </div>
                             </form>
                         </div>
-                        <button onClick={() => handleCancel()} className='btn btn-primary'>Cancel</button>
+                        <button onClick={() => handleCancel()} className='btn btn-primary w-22 mb-5 mx-auto'>Cancel</button>
                     </div>
                     <div class="text-center md:w-1/2 lg:text-left pl-10">
                         <h1 class="text-5xl font-bold">Edit Your To Do!</h1>
