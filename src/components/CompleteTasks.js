@@ -77,8 +77,6 @@ const CompleteTasks = () => {
                     {todo.error}
                     {todo.tasks.find((task) => task.completed === 'done') ? '' : 'You have no completed tasks to show...'}
                 </div>
-
-
             </div>
         </div>
     );
