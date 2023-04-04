@@ -1,24 +1,24 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { ImSpinner2 } from 'react-icons/im';
+import { taskState } from '../App';
 
 
 const GetTodoData = () => {
-  const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-    axios.get('https://todo-server-236i.onrender.com/tasks')
-      .then(data => {
-        setTasks(data.data)
-      })
+  const [todo, dispatch] = useContext(taskState);
 
-  }, [])
   return (
     <div className='border px-5 py-3 shadow-2xl rounded-lg bg-[#D4E6F1]'>
 
       <p className='font-bold text-2xl text-center text-[#009ACE] drop-shadow-sm'> Your Todo Tasks</p>
 
+      {todo.loading && <div className=' flex items-center justify-center'>
+        <ImSpinner2 className="animate-spin text-primary w-9 h-9 rounded-full" />
+      </div>}
+
       {
-        tasks.map((task, index) => {
+        todo.tasks?.map((task, index) => {
           return (
             <div key={index}>
               {task.completed === "" &&
@@ -35,6 +35,7 @@ const GetTodoData = () => {
         }
         )
       }
+      <div className='text-center text-red-700'>{todo.error}</div>
     </div>
   );
 };
