@@ -7,19 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
 import EditToDo from "./components/EditToDo";
 import Home from "./components/Home";
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { initialState, reducer } from "./Reducer/taskReducer";
 import axios from "axios";
 import CompleteTasks from "./components/CompleteTasks";
 import TodoList from "./components/TodoList";
 
-
-
 const taskState = createContext();
-const dispatchState = createContext();
+
 function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [quote, setQuote] = useState('');
 
   useEffect(() => {
     dispatch({ type: 'LOAD_START' })
@@ -32,7 +31,10 @@ function App() {
         dispatch({ type: 'LOAD_ERROR', payload: error.message })
       })
   }, [])
-
+  useEffect(() => {
+    axios.get('https://dummyjson.com/quotes/random')
+      .then(res => setQuote(res))
+  }, [])
 
   return (
     <div className="bg-[#f5f1e8]">

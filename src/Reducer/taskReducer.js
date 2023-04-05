@@ -6,7 +6,7 @@ export const initialState = {
 }
 
 export const reducer = (state, action) => {
-    console.log(state.tasks);
+    // console.log(state.tasks);
     switch (action.type) {
         case 'LOAD_START': {
             return {

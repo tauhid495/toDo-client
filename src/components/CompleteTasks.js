@@ -74,8 +74,10 @@ const CompleteTasks = () => {
                     })
                 }
                 <div className='text-center text-red-700'>
-                    {todo.error}
-                    {todo.tasks.find((task) => task.completed === 'done') ? '' : 'You have no completed tasks to show...'}
+                    {todo.error ?
+                        todo.error :
+                        todo.tasks.find((task) => task.completed === 'done') ? '' : 'You have no completed tasks to show...'
+                    }
                 </div>
             </div>
         </div>

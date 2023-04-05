@@ -12,6 +12,13 @@ const EditToDo = () => {
     const navigate = useNavigate();
     const [todo, dispatch] = useContext(taskState);
 
+    const [quote, setQuote] = useState('');
+    useEffect(() => {
+        axios.get('https://dummyjson.com/quotes/random')
+            .then(res => setQuote(res))
+    }, [])
+
+
     useEffect(() => {
         axios.get(`https://todo-server-236i.onrender.com/tasks/${id}`)
             .then(data => {
@@ -59,8 +66,9 @@ const EditToDo = () => {
                         <button onClick={() => handleCancel()} className='btn btn-primary w-22 mb-5 mx-auto'>Cancel</button>
                     </div>
                     <div className="text-center md:w-1/2 lg:text-left pl-10">
-                        <h1 className="text-5xl font-bold">Edit Your To Do!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="text-2xl font-semibold text-[#009ACE] px-14 mt-16">"{quote?.data?.quote}"</p>
+                        <p className="text-xl font-semibold  text-end px-14 py-5">---{quote?.data?.author
+                        }.</p>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, {
-    useContext,
+    useContext, useEffect, useState,
 } from 'react'
 import { toast } from 'react-toastify';
 import { taskState } from '../App';
@@ -10,6 +10,11 @@ import TodoList from './TodoList';
 const ToDo = () => {
 
     const [todo, dispatch] = useContext(taskState);
+    const [quote, setQuote] = useState('');
+    useEffect(() => {
+        axios.get('https://dummyjson.com/quotes/random')
+            .then(res => setQuote(res))
+    }, [])
 
     const handleAdd = (e) => {
         e.preventDefault();
@@ -50,12 +55,12 @@ const ToDo = () => {
 
                             <TodoList />
 
-                            <div className='text-center text-red-700'>{todo.error}</div>
                         </div>
                     </div>
                     <div className="text-center md:w-1/2 lg:text-left pl-10">
-                        <h1 className="text-5xl font-bold">Change this text!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="text-2xl font-semibold text-[#009ACE] px-14">"{quote?.data?.quote}"</p>
+                        <p className="text-xl font-semibold  text-end px-14 py-5">---{quote?.data?.author
+                        }.</p>
                     </div>
                 </div>
             </div>

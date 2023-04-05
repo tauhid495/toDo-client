@@ -62,8 +62,8 @@ const TodoList = () => {
             )
             }
             <div className='text-center text-red-700'>
-                {todo.error}
-                {todo.tasks.find((task) => task.completed === '') ? '' : 'Great! you have no panding task...'}
+                {todo.error ? todo.error :
+                    todo.tasks.find((task) => task.completed === '') ? '' : 'Great! you have no panding task...'}
             </div>
         </div>
     );
